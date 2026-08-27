@@ -17,7 +17,7 @@ El repositorio se divide en dos proyectos independientes:
 
 Una aplicación web de una sola pantalla que permite a los usuarios seleccionar sus intereses y nivel de experiencia para recibir una ruta secuencial de 3 cursos recomendados, demostrando lógica de filtrado y algoritmos de clasificación básicos.
 
-### 🛠️ Stack Tecnológico
+###  Stack Tecnológico
 * **Backend:** Python, FastAPI, Pydantic (para validación de esquemas).
 * **Frontend:** HTML5, Vanilla JavaScript, TailwindCSS (vía CDN), CSS puro para el diseño del *timeline*.
 * **Arquitectura:** Monolito donde FastAPI sirve los archivos estáticos directamente.
