@@ -13,7 +13,7 @@ El repositorio se divide en dos proyectos independientes:
 
 ---
 
-## Proyecto 1: Generador de Rutas de Aprendizaje 🛤️
+## Proyecto 1: Generador de Rutas de Aprendizaje 
 
 Una aplicación web de una sola pantalla que permite a los usuarios seleccionar sus intereses y nivel de experiencia para recibir una ruta secuencial de 3 cursos recomendados, demostrando lógica de filtrado y algoritmos de clasificación básicos.
 
@@ -22,7 +22,7 @@ Una aplicación web de una sola pantalla que permite a los usuarios seleccionar 
 * **Frontend:** HTML5, Vanilla JavaScript, TailwindCSS (vía CDN), CSS puro para el diseño del *timeline*.
 * **Arquitectura:** Monolito donde FastAPI sirve los archivos estáticos directamente.
 
-### 🚀 Instrucciones de Ejecución
+###  Instrucciones de Ejecución
 
 1. Navega a la carpeta del proyecto:
 
@@ -40,16 +40,16 @@ Una aplicación web de una sola pantalla que permite a los usuarios seleccionar 
 
 ---
 
-## Proyecto 2: Dashboard de Progreso Estudiantil 📊
+## Proyecto 2: Dashboard de Progreso Estudiantil 
 
 Un panel analítico que muestra el avance de un estudiante a través de KPIs (Cursos Terminados, Racha de Días, Horas Totales) y una gráfica interactiva, extrayendo los datos desde una base de datos relacional.
 
-### 🛠️ Stack Tecnológico
+###  Stack Tecnológico
 * **Backend:** Python, FastAPI, SQLite3 (con consultas SQL nativas).
 * **Frontend:** HTML5, Vanilla JavaScript, CSS3 puro, Chart.js (vía CDN).
 * **Arquitectura:** Cliente-Servidor (API RESTful separada del Frontend).
 
-### 🚀 Instrucciones de Ejecución
+###  Instrucciones de Ejecución
 
 Este proyecto requiere ejecutar el backend y el frontend por separado.
 
@@ -87,7 +87,7 @@ Este proyecto requiere ejecutar el backend y el frontend por separado.
 
 ---
 
-## ⚙️ Notas para el despliegue local
+##  Notas para el despliegue local
 Se recomienda agregar un archivo `.gitignore` en la raíz del repositorio con el siguiente contenido para evitar subir archivos autogenerados o de caché a GitHub:
 
     __pycache__/
@@ -97,6 +97,6 @@ Se recomienda agregar un archivo `.gitignore` en la raíz del repositorio con el
 
 ---
 
-## 👨‍💻 Autor
+##  Autor
 **Alonso Pardo Córdova**
 *Estudiante de Ingeniería en Sistemas Computacionales | Escuela Superior de Cómputo (ESCOM), IPN*
