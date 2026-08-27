@@ -87,16 +87,6 @@ Este proyecto requiere ejecutar el backend y el frontend por separado.
 
 ---
 
-##  Notas para el despliegue local
-Se recomienda agregar un archivo `.gitignore` en la raíz del repositorio con el siguiente contenido para evitar subir archivos autogenerados o de caché a GitHub:
-
-    __pycache__/
-    *.db
-
-*(Nota: La base de datos `.db` es ignorada intencionalmente ya que el script `database.py` la inicializa localmente de forma automática).*
-
----
-
 ##  Autor
 **Alonso Pardo Córdova**
 *Estudiante de Ingeniería en Sistemas Computacionales | Escuela Superior de Cómputo (ESCOM), IPN*
