@@ -34,9 +34,9 @@ Una aplicación web de una sola pantalla que permite a los usuarios seleccionar 
 
 3. Ejecuta el servidor backend con Uvicorn:
 
-        uvicorn main:app --reload
+        python -m uvicorn main:app --reload
 
-4. Abre tu navegador y visita: **[http://localhost:8000](http://localhost:8000)** (El frontend se sirve automáticamente en la raíz gracias a `StaticFiles`).
+5. Abre tu navegador y visita: **[http://localhost:8000](http://localhost:8000)** (El frontend se sirve automáticamente en la raíz gracias a `StaticFiles`).
 
 ---
 
@@ -69,7 +69,7 @@ Este proyecto requiere ejecutar el backend y el frontend por separado.
 
 4. Inicia el servidor backend:
 
-        uvicorn main_2:app --reload
+        python -m uvicorn main:app --reload
 
    *(La API quedará corriendo en el puerto 8000, con CORS habilitado).*
 
