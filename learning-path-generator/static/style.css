@@ -1,0 +1,52 @@
+/* Contenedor del timeline para posicionar la línea */
+#path-results {
+    position: relative;
+}
+
+/* La línea vertical continua */
+.timeline-line {
+    position: absolute;
+    left: 20px; /* Centrado con el círculo numerado */
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: #DBEAFE; /* blue-100 */
+    z-index: 0;
+}
+
+/* Item del timeline: Círculo numerado */
+.timeline-number {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    background-color: #2563eb; /* blue-600 */
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem; /* 18px */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: 4px solid #F8FAFC; /* Mismo color que el fondo de la página para "cortar" la línea */
+}
+
+/* Tarjeta del curso */
+.course-card {
+    margin-left: 64px; /* Espacio para el círculo numerado */
+    background-color: white;
+    border: 1px solid #E2E8F0; /* gray-200 */
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 5;
+}
+
+.course-card:hover {
+    border-color: #93C5FD; /* blue-300 */
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
+}

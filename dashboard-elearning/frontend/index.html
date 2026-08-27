@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Progreso | E-Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <header class="dashboard-header">
+            <h1>Tu Progreso de Estudio</h1>
+            <p>Resumen de actividad de la última semana.</p>
+        </header>
+
+        <!-- Contenedor para manejo de errores -->
+        <div id="error-alert" class="alert-hidden"></div>
+
+        <!-- Tarjetas de Resumen (KPIs) -->
+        <div class="kpi-grid">
+            <div class="card">
+                <h3>Cursos Terminados</h3>
+                <p id="kpi-terminados" class="kpi-value kpi-indigo">--</p>
+            </div>
+            <div class="card">
+                <h3>Racha de Estudio</h3>
+                <p class="kpi-value kpi-orange">
+                    <span id="kpi-racha">--</span> <span class="kpi-unit">días</span>
+                </p>
+            </div>
+            <div class="card">
+                <h3>Horas Totales (7 días)</h3>
+                <p class="kpi-value kpi-emerald">
+                    <span id="kpi-horas">--</span> <span class="kpi-unit">hrs</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Gráfica Chart.js -->
+        <div class="card chart-container">
+            <h2>Horas de Estudio por Día</h2>
+            <div class="canvas-wrapper">
+                <canvas id="progresoChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
