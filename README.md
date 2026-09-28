@@ -1,92 +1,59 @@
 # Pruebas Técnicas - Desarrollo Web (Full-Stack)
 
-> Repositorio de pruebas técnicas para desarrollo web full-stack. Contiene dos proyectos interactivos: un algoritmo de recomendación de rutas de aprendizaje y un dashboard analítico de progreso estudiantil construidos con FastAPI, SQLite, Vanilla JS y TailwindCSS.
+> Aplicación web unificada que combina un generador de rutas de aprendizaje y un dashboard analítico de progreso estudiantil, construida con FastAPI, SQLite, Vanilla JS y TailwindCSS.
 
-Este repositorio contiene dos proyectos desarrollados como demostración de habilidades técnicas para la posición de becario en desarrollo web. Ambas aplicaciones son soluciones *full-stack* que abarcan desde el diseño y la interacción en el frontend, hasta la lógica de negocio y gestión de datos en el backend.
+Esta página reúne las dos funcionalidades de la prueba técnica en **una sola aplicación**: una pestaña para generar una ruta recomendada de cursos y otra para visualizar el progreso de estudio con KPIs y una gráfica semanal.
 
-## 📂 Estructura del Repositorio
+## Estructura
 
-El repositorio se divide en dos proyectos independientes:
+```
+unified-app/
+├── main.py            # FastAPI: ambas APIs + serving del frontend
+├── database.py        # Inicializa SQLite y genera los datos de prueba
+├── requirements.txt   # Dependencias Python
+├── .gitignore         # Excluye database.db y .venv
+└── static/
+    ├── index.html     # Página única con pestañas
+    ├── app.js         # Lógica de pestañas + ambas funcionalidades
+    └── style.css      # Estilos (timeline, pestañas, dashboard)
+```
 
-1. **`learning-path-generator/`**: Una herramienta de recomendación de cursos basada en criterios de selección.
-2. **`dashboard-elearning/`**: Un panel de control (Dashboard) que extrae y visualiza métricas de estudio de una base de datos relacional.
+## Instrucciones de ejecución
 
----
-
-## Proyecto 1: Generador de Rutas de Aprendizaje 
-
-Una aplicación web de una sola pantalla que permite a los usuarios seleccionar sus intereses y nivel de experiencia para recibir una ruta secuencial de 3 cursos recomendados, demostrando lógica de filtrado y algoritmos de clasificación básicos.
-
-###  Stack Tecnológico
-* **Backend:** Python, FastAPI, Pydantic (para validación de esquemas).
-* **Frontend:** HTML5, Vanilla JavaScript, TailwindCSS (vía CDN), CSS puro para el diseño del *timeline*.
-* **Arquitectura:** Monolito donde FastAPI sirve los archivos estáticos directamente.
-
-###  Instrucciones de Ejecución
+Todo se sirve desde **un único servidor** en el puerto 8000.
 
 1. Navega a la carpeta del proyecto:
 
-        cd learning-path-generator
+        cd unified-app
 
-2. Instala las dependencias necesarias:
+2. Crea un entorno virtual e instala las dependencias *(requerido en sistemas con PEP 668, como Homebrew Python)*:
 
-        pip install fastapi uvicorn pydantic
-
-3. Ejecuta el servidor backend con Uvicorn:
-
-        python -m uvicorn main:app --reload
-
-5. Abre tu navegador y visita: **[http://localhost:8000](http://localhost:8000)** (El frontend se sirve automáticamente en la raíz gracias a `StaticFiles`).
-
----
-
-## Proyecto 2: Dashboard de Progreso Estudiantil 
-
-Un panel analítico que muestra el avance de un estudiante a través de KPIs (Cursos Terminados, Racha de Días, Horas Totales) y una gráfica interactiva, extrayendo los datos desde una base de datos relacional.
-
-###  Stack Tecnológico
-* **Backend:** Python, FastAPI, SQLite3 (con consultas SQL nativas).
-* **Frontend:** HTML5, Vanilla JavaScript, CSS3 puro, Chart.js (vía CDN).
-* **Arquitectura:** Cliente-Servidor (API RESTful separada del Frontend).
-
-###  Instrucciones de Ejecución
-
-Este proyecto requiere ejecutar el backend y el frontend por separado.
-
-**Paso 1: Configurar y levantar el Backend**
-
-1. Abre una terminal y navega a la carpeta del backend:
-
-        cd dashboard-elearning/backend
-
-2. Instala las dependencias:
-
+        python3 -m venv .venv
+        source .venv/bin/activate
         pip install -r requirements.txt
 
-3. Inicializa la base de datos (esto creará `database.db` y generará los datos de prueba simulados con fechas actualizadas):
+3. Inicializa la base de datos (crea `database.db` con los datos de prueba; **borra y regenera** los datos si ya existía):
 
         python database.py
 
-4. Inicia el servidor backend:
+4. Inicia el servidor:
 
         python -m uvicorn main:app --reload
 
-   *(La API quedará corriendo en el puerto 8000, con CORS habilitado).*
+5. Abre **http://localhost:8000** — usa las pestañas del header para alternar entre **«Generar Ruta»** y **«Mi Progreso»**. La API interactiva está en `/docs`.
 
-**Paso 2: Levantar el Frontend**
+## Funcionalidades
 
-1. Abre una **nueva terminal** (dejando el backend corriendo) y navega a la carpeta del frontend:
+- **Generar Ruta** — Selecciona un área (Tecnología, Ventas, Salud) y un nivel (Básico, Intermedio) y recibe una secuencia de hasta 3 cursos ordenados en un timeline. Endpoint: `POST /api/rutas`.
+- **Mi Progreso** — KPIs de cursos terminados, racha de días y horas de los últimos 7 días, más una gráfica de barras. Endpoint: `GET /api/progreso/{user_id}` (datos de prueba: usuario `1`).
 
-        cd dashboard-elearning/frontend
+## Notas
 
-2. Levanta un servidor HTTP de Python para servir los archivos web:
-
-        python -m http.server 8080
-
-3. Abre tu navegador y visita: **[http://localhost:8080](http://localhost:8080)**.
+- Ejecuta siempre los comandos **desde `unified-app/`**: `database.db` y `static/` se resuelven respecto al directorio de trabajo.
+- `python database.py` es destructivo: limpia y regenera la semilla con fechas relativas al día actual.
 
 ---
 
-##  Autor
+## Autor
 **Alonso Pardo Córdova**
 *Estudiante de Ingeniería en Sistemas Computacionales | Escuela Superior de Cómputo (ESCOM), IPN*
