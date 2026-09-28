@@ -47,6 +47,17 @@ Todo se sirve desde **un único servidor** en el puerto 8000.
 - **Generar Ruta** — Selecciona un área (Tecnología, Ventas, Salud) y un nivel (Básico, Intermedio) y recibe una secuencia de hasta 3 cursos ordenados en un timeline. Endpoint: `POST /api/rutas`.
 - **Mi Progreso** — KPIs de cursos terminados, racha de días y horas de los últimos 7 días, más una gráfica de barras. Endpoint: `GET /api/progreso/{user_id}` (datos de prueba: usuario `1`).
 
+## Metodología de desarrollo
+
+La unificación se hizo con flujo **spec-first** para agentes de IA, dejando evidencia en el repositorio:
+
+- `spec.md` — requisitos, contratos de API y **criterios de aceptación** definidos *antes* de codificar.
+- `plan.md` — fases ordenadas y riesgos identificados previamente (montaje de StaticFiles, Chart.js en canvas oculto, etc.).
+- `task.md` — checklist T1–T15 ejecutado y verificado; solo se marcó lo comprobado (curl + prueba visual en navegador).
+- `AGENTS.md` — contexto permanente para agentes de IA: comandos exactos, gotchas y límites del repo.
+
+El commit `3fdb911` ("Unificar las dos demos en una sola app") incluye los cuatro documentos, por lo que el historial de git refleja el proceso completo.
+
 ## Notas
 
 - Ejecuta siempre los comandos **desde `unified-app/`**: `database.db` y `static/` se resuelven respecto al directorio de trabajo.
